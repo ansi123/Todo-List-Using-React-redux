@@ -1,14 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import AddTodo from './components/AddTodo/AddTodo';
-import List from './components/List/List';
-function App() {
+import React, { useState } from 'react'
+import Home from './Home';
+import {UserContext} from './UserContext';
+
+const App = () => {
+  const [value,setValue]  = useState(null)
+
   return (
-    <div className="App">
-       <AddTodo/>
-       <List/>
-    </div>
-  );
+    <UserContext.Provider value={{value,setValue}}>
+       <Home/>
+    </UserContext.Provider>
+  )
 }
 
-export default App;
+export default App
